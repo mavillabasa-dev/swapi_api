@@ -23,7 +23,7 @@ async function start() {
     const app: Application = express();
 
     mongoose
-      .connect("mongodb://localhost:27017/starwars_api")
+      .connect(process.env.MONGODB_URL || "mongodb://localhost:27017/starwars_api")
       .then(() => {
         console.log("Connected to MongoDB");
         syncData();
